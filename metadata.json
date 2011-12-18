@@ -1,0 +1,29 @@
+{
+  "groupings": {
+  },
+  "platforms": {
+  },
+  "recommendations": {
+  },
+  "license": "All rights reserved",
+  "suggestions": {
+  },
+  "recipes": {
+  },
+  "conflicting": {
+  },
+  "description": "Installs/Configures ssh_tun",
+  "version": "0.0.1",
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "providing": {
+  },
+  "attributes": {
+  },
+  "maintainer": "Anton Grudko",
+  "name": "ssh_tun",
+  "replacing": {
+  },
+  "dependencies": {
+  },
+  "maintainer_email": "grudko@gmail.com"
+}
