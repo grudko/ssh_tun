@@ -40,11 +40,5 @@ ssh_tun_tunnel "28081" do
   action :add
 end
 
-ruby_block "restart_all" do
- block do
-  node[:ssh_tun].each do |tun|
-    Chef::Log.info "Tunnel: #{tun}"
-    notifies :restart, resources( :ssh_tun_tunnel => [ "#{tun}" ] )
-  end
- end
+restart_all do
 end
