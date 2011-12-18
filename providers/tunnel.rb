@@ -3,9 +3,17 @@
 # Provider:: tunnel
 #
 
-
 action :add do
  Chef::Log.info "Add tunnel"
+ package "autossh" do
+  action :upgrade
+ end
+ directory "/var/run/ssh_tun" do
+  owner "root"
+  group "root"
+  mode "0755"
+  action :create
+ end
  add_tun
  ruby_block "add_host_attribute" do
   block do

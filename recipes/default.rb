@@ -7,17 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "autossh" do
- action :upgrade
-end
-
-directory "/var/run/ssh_tun" do
-  owner "root"
-  group "root"
-  mode "0755"
-  action :create
-end
-
 ssh_tun_tunnel "28080" do
   local_port "28080"
   remote_host "192.168.0.60"
