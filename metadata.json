@@ -12,9 +12,9 @@
   },
   "conflicting": {
   },
-  "description": "Installs/Configures ssh_tun",
+  "description": "Installs/Configures ssh tunnels thru additional gateway",
   "version": "0.0.1",
-  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "long_description": "Installs/Configures ssh tunnels thru additional gateway",
   "providing": {
   },
   "attributes": {

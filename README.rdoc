@@ -1,8 +1,7 @@
-= DESCRIPTION:
+= Description:
 
-= REQUIREMENTS:
-
-= ATTRIBUTES:
+This Opsсode Chef Cookbook provides a resource/provider to manage local ssh ports forwarding to remote hosts via 3rd ssh gateway.
 
 = USAGE:
 
+See examples in the examples/recipes directory.
