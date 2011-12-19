@@ -4,7 +4,7 @@
 #
 
 action :add do
- Chef::Log.info "Add tunnel"
+ Chef::Log.info "Dependencies resolution"
  package "autossh" do
   action :upgrade
  end
@@ -14,6 +14,7 @@ action :add do
   mode "0755"
   action :create
  end
+ Chef::Log.info "Adding ssh tunnel"
  add_tun
  ruby_block "add_host_attribute" do
   block do
@@ -24,7 +25,7 @@ action :add do
 end
 
 action :remove do
- Chef::Log.info "Remove tunnel"
+ Chef::Log.info "Removing ssh tunnel"
  remove_tun
  ruby_block "del_host_attribute" do
   block do
@@ -35,7 +36,7 @@ action :remove do
 end
 
 action :restart do
- Chef::Log.info "Restart tunnel"
+ Chef::Log.info "Restarting ssh tunnel"
  remove_tun
  add_tun
 end
@@ -73,7 +74,7 @@ def remove_tun
   EOH
    action :nothing
   end.run_action(:run)
-  file "/var/run/ssh_tun/#{new_resource.remote_host}-#{new_resource.remote_port}-thru-#{new_resource.gateway}" do
+  file "/var/run/ssh_tun/#{new_resource.remote_host}-#{new_resource.remote_port}-thru-#{new_resource.gateway}.pid" do
    action :delete
   end
   new_resource.updated_by_last_action(true)
@@ -85,7 +86,7 @@ def remove_tun
    EOH
    action :nothing
   end.run_action(:run)
-  file "/var/run/ssh_tun/#{new_resource.remote_host}-#{new_resource.remote_port}-thru-#{new_resource.gateway}" do
+  file "/var/run/ssh_tun/#{new_resource.remote_host}-#{new_resource.remote_port}-thru-#{new_resource.gateway}.pid" do
    action :delete
   end
   new_resource.updated_by_last_action(true)
